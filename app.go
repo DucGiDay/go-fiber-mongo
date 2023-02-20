@@ -8,6 +8,7 @@ import (
 	"github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/hiiamtrong/go-fiber-restapi/config"
 	"github.com/hiiamtrong/go-fiber-restapi/route"
+	"github.com/hiiamtrong/go-fiber-restapi/middleware"
 )
 
 func main() {
@@ -29,6 +30,6 @@ func setupRoutes(app *fiber.App) {
 
 	api := app.Group("/api")
 
-	route.UserRoute(api.Group("/users"))
+	route.UserRoute(api.Group("/users", middleware.AuthMiddleware))
 	route.UserRouteAuth(api.Group("/auth"))
 }

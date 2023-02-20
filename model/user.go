@@ -35,9 +35,9 @@ func GetAllUsers() ([]User, error) {
 		log.Fatal(err)
 	}
 
-	for _, user := range users {
-		log.Println(user)
-	}
+	// for _, user := range users {
+	// 	log.Println(user)
+	// }
 
 	return users, nil
 }
